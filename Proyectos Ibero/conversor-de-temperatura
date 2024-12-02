@@ -1,0 +1,54 @@
+# Este es el conversor de temperaturas en Python
+
+def convertir_celsius_a_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def celsius_to_kelvin(celsius):
+    return celsius + 273.15
+
+def kelvin_to_celsius(kelvin):
+    return kelvin - 273.15
+
+def fahrenheit_to_kelvin(fahrenheit):
+    return celsius_to_kelvin(fahrenheit_to_celsius(fahrenheit))
+
+def kelvin_to_fahrenheit(kelvin):
+    return celsius_to_fahrenheit(kelvin_to_celsius(kelvin))
+
+def main():
+    print("Conversor de Temperatura")
+    print("1. Celsius a Fahrenheit")
+    print("2. Fahrenheit a Celsius")
+    print("3. Celsius a Kelvin")
+    print("4. Kelvin a Celsius")
+    print("5. Fahrenheit a Kelvin")
+    print("6. Kelvin a Fahrenheit")
+
+    choice = input("Selecciona una opción (1-6): ")
+
+    if choice == "1":
+        celsius = float(input("Introduce la temperatura en Celsius: "))
+        print(f"{celsius}° Celsius es igual a {convertir_celsius_a_fahrenheit(celsius)}° Fahrenheit")
+    elif choice == "2":
+        fahrenheit = float(input("Introduce la temperatura en Fahrenheit: "))
+        print(f"{fahrenheit}° Fahrenheit es igual a {fahrenheit_to_celsius(fahrenheit)}° Celsius")
+    elif choice == "3":
+        celsius = float(input("Introduce la temperatura en Celsius: "))
+        print(f"{celsius}° Celsius es igual a {celsius_to_kelvin(celsius)} Kelvin")
+    elif choice == "4":
+        kelvin = float(input("Introduce la temperatura en Kelvin: "))
+        print(f"{kelvin} Kelvin es igual a {kelvin_to_celsius(kelvin)}° Celsius")
+    elif choice == "5":
+        fahrenheit = float(input("Introduce la temperatura en Fahrenheit: "))
+        print(f"{fahrenheit}° Fahrenheit es igual a {fahrenheit_to_kelvin(fahrenheit)} Kelvin")
+    elif choice == "6":
+        kelvin = float(input("Introduce la temperatura en Kelvin: "))
+        print(f"{kelvin} Kelvin es igual a {kelvin_to_fahrenheit(kelvin)}° Fahrenheit")
+    else:
+        print("Opción no válida")
+
+if __name__ == "__main__":
+    main()
